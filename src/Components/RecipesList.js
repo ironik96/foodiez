@@ -5,15 +5,15 @@ import Recipe from "./Recipe";
 import RecipeCreateModal from "./RecipeCreatModal";
 
 function RecipesList() {
-  const recipesList = recipesStore.recipes.map((recipe) => (
+  const recipesList = recipesStore.recipes?.map((recipe) => (
     <Recipe key={recipe._id} recipe={recipe} />
   ));
   return (
     <div>
       <div>My Recipes </div>
+      <RecipeCreateModal />
       <hr />
       <div className="recipe-container">{recipesList}</div>
-      <RecipeCreateModal />
     </div>
   );
 }
