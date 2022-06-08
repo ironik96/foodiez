@@ -3,10 +3,12 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import recipesStore from "../stores/recipesStore";
-
+import { MultiSelect } from "react-multi-select-component";
+import categoriesStore from "../stores/categoriesStore";
 function RecipeCreateModal() {
   const [show, setShow] = useState(false);
 
+  const [selected, setSelected] = useState([]);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [newRecipe, setNewRecipe] = useState({
@@ -15,10 +17,24 @@ function RecipeCreateModal() {
     ingredients: [],
   });
 
+  const cats = categoriesStore.categories;
+  const catOptions = [];
+  for (let i = 0; i < cats.length; i++) {
+    catOptions.push({ label: cats[i].name, value: cats[i].name });
+  }
+
   const handleChange = (event) => {
     setNewRecipe({});
   };
-
+  const handleGenres = (current) => {
+    let newArray = [];
+    if (current.length === 0) {
+      newArray = ["Fantasy"];
+    } else {
+      newArray = current.map((genre) => genre.value);
+    }
+    setNewRecipe({ ...newRecipe, genres: newArray });
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
     recipesStore.createRecipe(newRecipe);
@@ -46,6 +62,17 @@ function RecipeCreateModal() {
                 onChange={handleChange}
               />
             </Form.Group>
+            <MultiSelect
+              options={catOptions}
+              value={selected}
+              onChange={(selected) => {
+                setSelected(selected);
+                handleGenres(selected);
+              }}
+              name="genres"
+              labelledBy="Select"
+              className="genresmenu"
+            />
           </Form>
         </Modal.Body>
         <Modal.Footer>
