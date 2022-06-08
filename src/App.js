@@ -1,10 +1,13 @@
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import CategoriesList from "./Components/CategoriesList";
 
 function App() {
   return (
     <div className="App">
-      <CategoriesList />
+      <div>
+        <CategoriesList />
+      </div>
     </div>
   );
 }

@@ -1,14 +1,17 @@
 import categoriesStore from "../stores/categoriesStore";
 import React, { Component } from "react";
 import { observer } from "mobx-react";
+import CategoryItem from "./CategoryItem";
+import CategoryCreateModal from "./CategoryCreateModal";
 
 function CategoriesList() {
   const categoriesList = categoriesStore.categories.map((category) => {
-    return <h1>{category.name}</h1>;
+    return <CategoryItem category={category} />;
   });
   return (
     <div>
-      <h6>{categoriesList}</h6>
+      {categoriesList}
+      <CategoryCreateModal />
     </div>
   );
 }
