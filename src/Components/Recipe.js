@@ -6,7 +6,7 @@ function Recipe({ recipe }) {
     return <RecipeCat name={category.name} />;
   });
 
-  const ingredientsPopulate = recipe.ingredients.map((ingredient) => {
+  const ingredientsPopulate = recipe.ingredients?.map((ingredient) => {
     return <RecipeIng name={ingredient.name} />;
   });
 

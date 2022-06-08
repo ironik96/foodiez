@@ -2,6 +2,7 @@ import recipesStore from "../stores/recipesStore";
 import React, { Component } from "react";
 import { observer } from "mobx-react";
 import Recipe from "./Recipe";
+import RecipeCreateModal from "./RecipeCreatModal";
 
 function RecipesList() {
   const recipesList = recipesStore.recipes.map((recipe) => (
@@ -12,6 +13,7 @@ function RecipesList() {
       <div>My Recipes </div>
       <hr />
       <div className="recipe-container">{recipesList}</div>
+      <RecipeCreateModal />
     </div>
   );
 }
