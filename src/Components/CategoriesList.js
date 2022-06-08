@@ -3,12 +3,12 @@ import React, { Component } from "react";
 import { observer } from "mobx-react";
 
 function CategoriesList() {
-  const categoriesList = categoriesStore.categories.map((category) => {
-    return <h1>{category.name}</h1>;
+  const categoriesList = categoriesStore.categories?.map((category) => {
+    return <p key={category._id}>{category.name}</p>;
   });
   return (
     <div>
-      <h6>{categoriesList}</h6>
+      <h1>{categoriesList}</h1>
     </div>
   );
 }

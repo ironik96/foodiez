@@ -1,4 +1,3 @@
-import axios from "axios";
 import { makeAutoObservable } from "mobx";
 import instance from "./instance";
 
@@ -13,7 +12,7 @@ class CategoriesStore {
     try {
       const response = await instance.get("/categories");
       this.categories = response.data;
-      // console.log(response.data);
+      console.log(response.data);
     } catch (error) {
       console.error("fetching error", error);
     }

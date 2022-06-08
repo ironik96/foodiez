@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+
+
+.recipe-container{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap:wrap;
+}
+
+.one-recipe{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width:16rem;
+  height:16rem;
+  margin: 2px;
+  border: 2px solid green;
+
+  font-weight: bold;
+}
+
+.one-recipe-img{
+  width:8rem;
+  height:6rem;
+}
+
+.one-recipe-ingredients{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
