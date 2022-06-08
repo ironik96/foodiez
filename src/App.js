@@ -1,13 +1,14 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import CategoriesList from "./Components/CategoriesList";
+import IngredientCreateModal from "./Components/IngredientCreateModal";
 import RecipesList from "./Components/RecipesList";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <div className="App">
       <CategoriesList />
+      <IngredientCreateModal />
       <RecipesList />
     </div>
   );
