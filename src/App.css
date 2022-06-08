@@ -1,38 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Kameron:wght@400;700&display=swap");
+
+:root {
+  --navbar-gap: 30px;
+}
+
 .App {
-  text-align: center;
+  font-size: 18px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.btn {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  border-radius: 10px;
+  padding: 20px;
+  width: 125px;
+  height: 30px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  background-color: white;
+  border: none;
 }
 
-.App-link {
-  color: #61dafb;
+.action-btn {
+  background-color: #000000;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn > p {
+  font-family: "Inter";
+  font-style: normal;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.action-btn > p {
+  font-family: "Inter";
+  font-style: normal;
+  font-size: 24px;
+  line-height: 29px;
+  color: #ffffff;
+}
+
+.navbar-container {
+  width: calc(100% - 50px);
+  margin-left: 25px;
+  position: fixed;
+}
+
+.navbar {
+  display: flex;
+  gap: var(--navbar-gap);
+  font-weight: bold;
+  align-items: baseline;
+}
+
+.navbar > h1 {
+  font-family: "Kameron";
+  font-style: normal;
+  font-size: 36px;
+  line-height: 46px;
+}
+
+.navbar-pages {
+  list-style: none;
+  gap: var(--navbar-gap);
+  display: flex;
+}
+
+.navbar > div {
+  flex-grow: 1;
 }

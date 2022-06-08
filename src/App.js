@@ -1,10 +1,13 @@
-import "./App.css";
 import CategoriesList from "./Components/CategoriesList";
+import NavBar from "./Components/NavBar";
+// import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <CategoriesList />
+      <NavBar />
+      {/* <CategoriesList /> */}
     </div>
   );
 }

@@ -1,5 +1,8 @@
 import { makeAutoObservable } from "mobx";
 import instance from "./instance";
+import jwt_decode from "jwt-decode";
+
+const tokenKey = "token";
 
 class AuthStore {
   constructor() {
