@@ -12,11 +12,7 @@ function Recipe({ recipe }) {
 
   return (
     <div className="one-recipe">
-      <img
-        className="one-recipe-img"
-        alt="placeholder"
-        src={recipe.image}
-      ></img>
+      <img className="one-recipe-img" alt="s" src={recipe.image}></img>
       <div>{recipe.name}</div>
       <div>{categoriesPopulate}</div>
       <div className="one-recipe-ingredients">{ingredientsPopulate}</div>

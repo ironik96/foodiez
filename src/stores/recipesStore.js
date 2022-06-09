@@ -21,8 +21,10 @@ class RecipesStore {
   };
 
   filterRecipes = () => {
-    this.filteredRecipes = this.recipes.filter(({ categories }) =>
-      categories.some(({ name }) => name.includes(this.filter))
+    this.filteredRecipes = this.recipes.filter(
+      ({ categories }) =>
+        categories.some(({ name }) => name.includes(this.filter)) ||
+        categories.length === 0
     );
   };
 
@@ -38,11 +40,10 @@ class RecipesStore {
   createRecipe = async (recipe) => {
     try {
       const response = await instance.post("recipes/create", recipe);
-      console.log(response.data);
-      // this.setRecipes([...this.recipes, response.data]);
       this.fetchRecipes();
     } catch (error) {
-      console.error("creating error", error);
+      alert("Must enter a recipe name");
+      console.log(error);
     }
   };
 }
