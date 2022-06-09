@@ -5,7 +5,7 @@ import Recipe from "./Recipe";
 import RecipeCreateModal from "./modals/RecipeCreatModal";
 
 function RecipesList() {
-  const recipesList = recipesStore.recipes.map((recipe) => (
+  const recipesList = recipesStore.filteredRecipes.map((recipe) => (
     <Recipe key={recipe._id} recipe={recipe} />
   ));
   return (
