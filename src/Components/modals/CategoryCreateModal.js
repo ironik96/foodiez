@@ -2,41 +2,41 @@ import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import ingredientsStore from "../stores/ingredientStore";
+import categoriesStore from "../../stores/categoriesStore";
 
-function IngredientCreateModal() {
+function CategoryCreateModal() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [newIngredient, setNewIngredient] = useState({ name: "" });
+  const [newCategory, setNewCategory] = useState({ name: "" });
 
   const handleChange = (event) => {
-    setNewIngredient({
+    setNewCategory({
       name: event.target.value,
     });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    ingredientsStore.createIngredient(newIngredient);
+    categoriesStore.createCategory(newCategory);
     handleClose();
   };
 
   return (
     <>
       <Button variant="outline-dark" size="lg" onClick={handleShow}>
-        + New Ingredient
+        + New Category
       </Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Create a New Ingredient</Modal.Title>
+          <Modal.Title>Create a New Category</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Ingredient Name</Form.Label>
+              <Form.Label>Category Name</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Name"
@@ -59,4 +59,4 @@ function IngredientCreateModal() {
   );
 }
 
-export default IngredientCreateModal;
+export default CategoryCreateModal;

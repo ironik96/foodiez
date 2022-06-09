@@ -2,12 +2,12 @@ import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import recipesStore from "../stores/recipesStore";
+import recipesStore from "../../stores/recipesStore";
 import { MultiSelect } from "react-multi-select-component";
-
+import categoriesStore from "../../stores/categoriesStore";
+import ingredientsStore from "../../stores/ingredientStore";
 import { observer } from "mobx-react";
-import categoriesStore from "../stores/categoriesStore";
-import ingredientsStore from "../stores/ingredientStore";
+
 function RecipeCreateModal() {
   const [show, setShow] = useState(false);
 
