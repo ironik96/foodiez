@@ -29,7 +29,7 @@ function CategoryCreateModal() {
         + New Category
       </Button>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onSubmit={handleSubmit} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Create a New Category</Modal.Title>
         </Modal.Header>
