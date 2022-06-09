@@ -6,6 +6,8 @@ import recipesStore from "../../stores/recipesStore";
 import { MultiSelect } from "react-multi-select-component";
 import categoriesStore from "../../stores/categoriesStore";
 import ingredientsStore from "../../stores/ingredientStore";
+import { observer } from "mobx-react";
+
 function RecipeCreateModal() {
   const [show, setShow] = useState(false);
 
@@ -122,4 +124,4 @@ function RecipeCreateModal() {
   );
 }
 
-export default RecipeCreateModal;
+export default observer(RecipeCreateModal);

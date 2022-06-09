@@ -23,6 +23,7 @@ class RecipesStore {
       const response = await instance.post("recipes/create", recipe);
       console.log(response.data);
       this.recipes.push(response.data);
+      this.fetchRecipes();
     } catch (error) {
       console.error("creating error", error);
     }
