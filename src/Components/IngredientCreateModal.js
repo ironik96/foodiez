@@ -29,7 +29,7 @@ function IngredientCreateModal() {
         + New Ingredient
       </Button>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onSubmit={handleSubmit} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Create a New Ingredient</Modal.Title>
         </Modal.Header>
