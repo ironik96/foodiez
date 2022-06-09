@@ -43,6 +43,13 @@ function RecipeCreateModal() {
     });
   };
 
+  const [recipeImg, setRecipeImg] = useState();
+  const handleImg = (event) => {
+    setNewRecipe({
+      image: event.target.value,
+    });
+  };
+
   //handles categories select
   const handleCategories = (current) => {
     let newArray = [];
@@ -84,6 +91,10 @@ function RecipeCreateModal() {
                 autoFocus
                 onChange={handleChange}
               />
+            </Form.Group>
+            <Form.Group controlId="formFile" className="mb-3">
+              <Form.Label>Image</Form.Label>
+              <Form.Control type="file" onChange={handleImg} />
             </Form.Group>
             <Form.Label>Category</Form.Label>
             <MultiSelect
