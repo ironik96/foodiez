@@ -4,6 +4,8 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import recipesStore from "../stores/recipesStore";
 import { MultiSelect } from "react-multi-select-component";
+
+import { observer } from "mobx-react";
 import categoriesStore from "../stores/categoriesStore";
 import ingredientsStore from "../stores/ingredientStore";
 function RecipeCreateModal() {
@@ -122,4 +124,4 @@ function RecipeCreateModal() {
   );
 }
 
-export default RecipeCreateModal;
+export default observer(RecipeCreateModal);
