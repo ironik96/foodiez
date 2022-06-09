@@ -6,12 +6,13 @@
 
 .App {
   font-size: 18px;
+  text-align: center;
 }
 
 .navbar-container {
   width: calc(100% - 50px);
   margin-left: 25px;
-  position: fixed;
+  position: relative;
 }
 
 .navbar {
@@ -40,4 +41,37 @@
 
 .sign-modal {
   padding: 25px;
+}
+
+.recipe-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.one-recipe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 16rem;
+  height: 16rem;
+  margin: 2px;
+  border: 2px solid green;
+
+  font-weight: bold;
+}
+
+.one-recipe-img {
+  width: 8rem;
+  height: 6rem;
+}
+
+.one-recipe-ingredients {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
