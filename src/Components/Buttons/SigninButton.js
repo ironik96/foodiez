@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { Button } from "react-bootstrap";
 import SigninModal from "../modals/SigninModal";
 
 const SigninButton = () => {
@@ -7,11 +8,11 @@ const SigninButton = () => {
   const closeModal = () => setModalShow(false);
   return (
     <>
-      <button className="btn" onClick={openModal}>
-        <p>Signin</p>
-      </button>
+      <Button variant="light" onClick={openModal}>
+        Sign in
+      </Button>
 
-      <SigninModal show={modalShow} closeModal={closeModal} />
+      <SigninModal {...{ modalShow, closeModal }} />
     </>
   );
 };

@@ -8,37 +8,6 @@
   font-size: 18px;
 }
 
-.btn {
-  display: flex;
-  border-radius: 10px;
-  padding: 20px;
-  width: 125px;
-  height: 30px;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  border: none;
-}
-
-.action-btn {
-  background-color: #000000;
-}
-
-.btn > p {
-  font-family: "Inter";
-  font-style: normal;
-  font-size: 24px;
-  line-height: 29px;
-}
-
-.action-btn > p {
-  font-family: "Inter";
-  font-style: normal;
-  font-size: 24px;
-  line-height: 29px;
-  color: #ffffff;
-}
-
 .navbar-container {
   width: calc(100% - 50px);
   margin-left: 25px;
@@ -54,7 +23,7 @@
 
 .navbar > h1 {
   font-family: "Kameron";
-  font-style: normal;
+  font-weight: bold;
   font-size: 36px;
   line-height: 46px;
 }
@@ -67,4 +36,8 @@
 
 .navbar > div {
   flex-grow: 1;
+}
+
+.sign-modal {
+  padding: 25px;
 }

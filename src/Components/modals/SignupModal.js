@@ -1,8 +1,8 @@
-import { Modal, Button, Form } from "react-bootstrap";
+import { Modal, Button, Form, InputGroup } from "react-bootstrap";
 import authStore from "../../stores/authStore";
 import { useState } from "react";
 
-const SignupModal = (props) => {
+const SignupModal = ({ modalShow, closeModal }) => {
   const initialUser = {
     username: "",
     password: "",
@@ -16,42 +16,42 @@ const SignupModal = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     authStore.signup(user);
-    props.closeModal();
+    closeModal();
     setUser(initialUser);
   };
   return (
     <Modal
-      {...props}
+      show={modalShow}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      onHide={closeModal}
     >
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">Signup</Modal.Title>
-      </Modal.Header>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3">
-          <Form.Label>username</Form.Label>
+      <Form className="sign-modal" onSubmit={handleSubmit}>
+        <InputGroup>
+          <InputGroup.Text>Username</InputGroup.Text>
           <Form.Control
             type="text"
             name="username"
-            placeholder="username"
             autoFocus
             onChange={handleChange}
           />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>password</Form.Label>
+        </InputGroup>
+        <br />
+
+        <InputGroup>
+          <InputGroup.Text>Password</InputGroup.Text>
           <Form.Control
             type="password"
             name="password"
-            placeholder="password"
             onChange={handleChange}
           />
-        </Form.Group>
+        </InputGroup>
       </Form>
       <Modal.Footer>
-        <Button onClick={handleSubmit}>Close</Button>
+        <Button variant="dark" onClick={handleSubmit}>
+          Sign up
+        </Button>
       </Modal.Footer>
     </Modal>
   );

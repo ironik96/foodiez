@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { Button } from "react-bootstrap";
 import SignupModal from "../modals/SignupModal";
 
 const SignupButton = () => {
@@ -7,11 +8,11 @@ const SignupButton = () => {
   const closeModal = () => setModalShow(false);
   return (
     <>
-      <button className="btn action-btn" onClick={openModal}>
-        <p>Signup</p>
-      </button>
+      <Button variant="dark" onClick={openModal}>
+        Sign up
+      </Button>
 
-      <SignupModal show={modalShow} closeModal={closeModal} />
+      <SignupModal {...{ modalShow, closeModal }} />
     </>
   );
 };
