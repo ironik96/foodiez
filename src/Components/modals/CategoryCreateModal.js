@@ -2,7 +2,7 @@ import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import categoriesStore from "../stores/categoriesStore";
+import categoriesStore from "../../stores/categoriesStore";
 
 function CategoryCreateModal() {
   const [show, setShow] = useState(false);

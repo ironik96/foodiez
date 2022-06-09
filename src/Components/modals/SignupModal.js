@@ -1,4 +1,4 @@
-import { Modal, Button, Form, InputGroup } from "react-bootstrap";
+import { Modal, Button, Form, InputGroup, ModalBody } from "react-bootstrap";
 import authStore from "../../stores/authStore";
 import { useState } from "react";
 
@@ -21,38 +21,45 @@ const SignupModal = ({ modalShow, closeModal }) => {
   };
   return (
     <Modal
+      onSubmit={handleSubmit}
       show={modalShow}
-      size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
       onHide={closeModal}
     >
-      <Form className="sign-modal" onSubmit={handleSubmit}>
-        <InputGroup>
-          <InputGroup.Text>Username</InputGroup.Text>
-          <Form.Control
-            type="text"
-            name="username"
-            autoFocus
-            onChange={handleChange}
-          />
-        </InputGroup>
-        <br />
+      <Form onSubmit={handleSubmit}>
+        <ModalBody>
+          <InputGroup>
+            <InputGroup.Text>Username</InputGroup.Text>
+            <Form.Control
+              type="text"
+              name="username"
+              autoFocus
+              onChange={handleChange}
+            />
+          </InputGroup>
+          <br />
 
-        <InputGroup>
-          <InputGroup.Text>Password</InputGroup.Text>
-          <Form.Control
-            type="password"
-            name="password"
-            onChange={handleChange}
-          />
-        </InputGroup>
+          <InputGroup>
+            <InputGroup.Text>Password</InputGroup.Text>
+            <Form.Control
+              type="password"
+              name="password"
+              onChange={handleChange}
+            />
+          </InputGroup>
+        </ModalBody>
+        <Modal.Footer>
+          <Button
+            variant="dark"
+            type="submit"
+            value="Submit"
+            onClick={handleSubmit}
+          >
+            Sign up
+          </Button>
+        </Modal.Footer>
       </Form>
-      <Modal.Footer>
-        <Button variant="dark" onClick={handleSubmit}>
-          Sign up
-        </Button>
-      </Modal.Footer>
     </Modal>
   );
 };

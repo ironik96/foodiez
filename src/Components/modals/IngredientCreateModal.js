@@ -2,7 +2,7 @@ import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import ingredientsStore from "../stores/ingredientStore";
+import ingredientsStore from "../../stores/ingredientStore";
 
 function IngredientCreateModal() {
   const [show, setShow] = useState(false);
