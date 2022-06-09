@@ -2,7 +2,7 @@ import { makeAutoObservable } from "mobx";
 import instance from "./instance";
 
 class RecipesStore {
-  Recipes = [];
+  recipes = [];
 
   constructor() {
     makeAutoObservable(this);

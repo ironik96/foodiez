@@ -1,12 +1,12 @@
 import categoriesStore from "../stores/categoriesStore";
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { observer } from "mobx-react";
 import CategoryItem from "./CategoryItem";
 import CategoryCreateModal from "./CategoryCreateModal";
 
 function CategoriesList() {
   const categoriesList = categoriesStore.categories.map((category) => {
-    return <CategoryItem category={category} />;
+    return <CategoryItem key={category._id} category={category} />;
   });
   return (
     <div>
@@ -17,3 +17,11 @@ function CategoriesList() {
 }
 
 export default observer(CategoriesList);
+
+/*
+
+  const [currentCategory, setCurrentCategory] = useState("all");
+
+  
+        setCurrentCategory={setCurrentCategory}
+*/

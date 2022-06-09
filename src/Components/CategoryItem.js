@@ -14,3 +14,12 @@ function CategoryItem({ category }) {
 }
 
 export default observer(CategoryItem);
+
+/*
+
+
+        onClick={() => {
+          console.log("clicky");
+          setCurrentCategory(category.name);
+        }}
+        */

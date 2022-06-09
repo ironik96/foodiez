@@ -5,38 +5,59 @@ import Button from "react-bootstrap/Button";
 import recipesStore from "../stores/recipesStore";
 import { MultiSelect } from "react-multi-select-component";
 import categoriesStore from "../stores/categoriesStore";
+import ingredientsStore from "../stores/ingredientStore";
 function RecipeCreateModal() {
   const [show, setShow] = useState(false);
 
-  const [selected, setSelected] = useState([]);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
   const [newRecipe, setNewRecipe] = useState({
     name: "",
     categories: [],
     ingredients: [],
   });
 
+  //handles categories multiselect content
   const cats = categoriesStore.categories;
-  const catOptions = [];
+  const categoryOptions = [];
   for (let i = 0; i < cats.length; i++) {
-    catOptions.push({ label: cats[i].name, value: cats[i].name });
+    categoryOptions.push({ label: cats[i].name, value: cats[i]._id });
   }
 
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  //handles ingredients multiselect conent
+  const ings = ingredientsStore.ingredients;
+  const ingredientOptions = [];
+  for (let i = 0; i < ings.length; i++) {
+    ingredientOptions.push({ label: ings[i].name, value: ings[i]._id });
+  }
+
+  const [selectedIngredients, setSelectedIngredients] = useState([]);
+  //handles name
   const handleChange = (event) => {
-    setNewRecipe({});
+    setNewRecipe({
+      name: event.target.value,
+    });
   };
-  const handleGenres = (current) => {
+
+  //handles categories select
+  const handleCategories = (current) => {
     let newArray = [];
-    if (current.length === 0) {
-      newArray = ["Fantasy"];
-    } else {
-      newArray = current.map((genre) => genre.value);
-    }
-    setNewRecipe({ ...newRecipe, genres: newArray });
+    newArray = current.map((category) => category.value);
+    setNewRecipe({ ...newRecipe, categories: newArray });
   };
+
+  //handles ingredient select
+  const handleIngredients = (current) => {
+    let newArray = [];
+    newArray = current.map((ingredient) => ingredient.value);
+    setNewRecipe({ ...newRecipe, ingredients: newArray });
+  };
+  //handles submit
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(newRecipe);
     recipesStore.createRecipe(newRecipe);
     handleClose();
   };
@@ -62,25 +83,38 @@ function RecipeCreateModal() {
                 onChange={handleChange}
               />
             </Form.Group>
+            <Form.Label>Category</Form.Label>
             <MultiSelect
-              options={catOptions}
-              value={selected}
-              onChange={(selected) => {
-                setSelected(selected);
-                handleGenres(selected);
+              options={categoryOptions}
+              value={selectedCategories}
+              onChange={(selectedCategories) => {
+                setSelectedCategories(selectedCategories);
+                handleCategories(selectedCategories);
               }}
               name="genres"
               labelledBy="Select"
-              className="genresmenu"
+              className="mb-3"
+            />
+            <Form.Label>Ingredients</Form.Label>
+            <MultiSelect
+              options={ingredientOptions}
+              value={selectedIngredients}
+              onChange={(selectedIngredients) => {
+                setSelectedIngredients(selectedIngredients);
+                handleIngredients(selectedIngredients);
+              }}
+              name="genres"
+              labelledBy="Select"
+              className="mb-3"
             />
           </Form>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            Cancel
           </Button>
           <Button variant="primary" onClick={handleSubmit}>
-            Save Changes
+            Generate
           </Button>
         </Modal.Footer>
       </Modal>
