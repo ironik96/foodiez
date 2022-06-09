@@ -39,10 +39,6 @@
   flex-grow: 1;
 }
 
-.sign-modal {
-  padding: 25px;
-}
-
 .recipe-container {
   display: flex;
   justify-content: center;
