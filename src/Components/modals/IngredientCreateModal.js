@@ -25,7 +25,7 @@ function IngredientCreateModal() {
 
   return (
     <>
-      <Button variant="outline-dark" size="lg" onClick={handleShow}>
+      <Button variant="outline-secondary" onClick={handleShow}>
         + New Ingredient
       </Button>
 
