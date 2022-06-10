@@ -8,12 +8,13 @@ import categoriesStore from "../../stores/categoriesStore";
 import ingredientsStore from "../../stores/ingredientStore";
 import { observer } from "mobx-react";
 
+import authStore from "../../stores/authStore";
 function RecipeCreateModal() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  let status = "";
+
   const [newRecipe, setNewRecipe] = useState({
     name: "",
     categories: [],
@@ -73,6 +74,7 @@ function RecipeCreateModal() {
     formData.append("categories", newRecipe.categories);
     formData.append("ingredients", newRecipe.ingredients);
     formData.append("recipeImage", fileImg);
+    formData.append("user", authStore.user._id);
     recipesStore.createRecipe(formData);
     clearInputs();
     handleClose();
@@ -144,7 +146,6 @@ function RecipeCreateModal() {
               className="mb-3"
             />
           </Form>
-          <Form.Label>{status}</Form.Label>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
