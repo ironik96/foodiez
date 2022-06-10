@@ -93,7 +93,7 @@ function RecipeCreateModal() {
   // component
   return (
     <>
-      <Button variant="outline-dark" size="lg" onClick={handleShow}>
+      <Button variant="outline-dark" onClick={handleShow}>
         + New Recipe
       </Button>
 
