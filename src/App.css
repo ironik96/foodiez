@@ -12,7 +12,9 @@
 .navbar-container {
   width: calc(100% - 50px);
   margin-left: 25px;
-  position: relative;
+  position: fixed;
+  background-color: white;
+  height: 70px;
 }
 
 .navbar {
@@ -29,14 +31,12 @@
   line-height: 46px;
 }
 
-.navbar-pages {
-  list-style: none;
-  gap: var(--navbar-gap);
-  display: flex;
-}
-
 .navbar > div {
   flex-grow: 1;
+}
+
+.content-container {
+  padding-top: 80px;
 }
 
 .recipe-container {

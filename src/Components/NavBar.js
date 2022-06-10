@@ -24,10 +24,6 @@ const NavBar = () => {
     <div className="navbar-container">
       <nav className="navbar">
         <h1>Foodiez</h1>
-        <ul className="navbar-pages">
-          <li>Recipies</li>
-          <li>Ingredients</li>
-        </ul>
         <div></div>
         {authButtons}
       </nav>
