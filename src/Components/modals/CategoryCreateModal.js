@@ -19,10 +19,45 @@ function CategoryCreateModal() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    categoriesStore.createCategory(newCategory);
+    categoriesStore.createCategory(newCategory, setShowError, setShowSuccess);
     handleClose();
   };
 
+  //notification for Success
+  const [showSuccess, setShowSuccess] = useState(false);
+  let successMsg;
+  if (showSuccess) {
+    successMsg = (
+      <Alert
+        className="m-4 w-25 position-absolute top-25 start-50 translate-middle popup-messages"
+        variant="success"
+        onClose={() => setShowSuccess(false)}
+        dismissible
+      >
+        <p className="my-2">Successfully added Category</p>
+      </Alert>
+    );
+  } else {
+    successMsg = <></>;
+  }
+  //handling Errors
+  const [showError, setShowError] = useState(false);
+  let errorMsg;
+  if (showError) {
+    errorMsg = (
+      <Alert
+        className="m-4 w-25 position-absolute top-25 start-50 translate-middle popup-messages"
+        variant="danger"
+        onClose={() => setShowError(false)}
+        dismissible
+      >
+        <Alert.Heading>Can't Add the Category</Alert.Heading>
+        <p>Please try again</p>
+      </Alert>
+    );
+  } else {
+    errorMsg = <></>;
+  }
   return (
     <>
       <Button variant="lite" onClick={handleShow}>
@@ -55,6 +90,8 @@ function CategoryCreateModal() {
           </Button>
         </Modal.Footer>
       </Modal>
+      {errorMsg}
+      {successMsg}
     </>
   );
 }
