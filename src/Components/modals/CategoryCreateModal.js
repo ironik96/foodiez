@@ -25,8 +25,8 @@ function CategoryCreateModal() {
 
   return (
     <>
-      <Button variant="outline-dark" onClick={handleShow}>
-        + New Category
+      <Button variant="lite" onClick={handleShow}>
+        + Category
       </Button>
 
       <Modal show={show} onSubmit={handleSubmit} onHide={handleClose}>

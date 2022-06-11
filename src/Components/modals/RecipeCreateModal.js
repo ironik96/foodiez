@@ -137,8 +137,8 @@ function RecipeCreateModal() {
   // component
   return (
     <>
-      <Button variant="outline-dark" onClick={handleShow}>
-        + New Recipe
+      <Button variant="lite" onClick={handleShow}>
+        + Recipe
       </Button>
 
       <Modal show={show} onSubmit={handleSubmit} onHide={handleClose}>

@@ -68,8 +68,8 @@ function IngredientCreateModal() {
 
   return (
     <>
-      <Button variant="outline-secondary" onClick={handleShow}>
-        + New Ingredient
+      <Button variant="lite" onClick={handleShow}>
+        + Ingredient
       </Button>
 
       <Modal show={show} onSubmit={handleSubmit} onHide={handleClose}>

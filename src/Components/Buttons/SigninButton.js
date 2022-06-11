@@ -8,7 +8,7 @@ const SigninButton = () => {
   const closeModal = () => setModalShow(false);
   return (
     <>
-      <Button variant="light" onClick={openModal}>
+      <Button variant="lite" onClick={openModal}>
         Sign in
       </Button>
 

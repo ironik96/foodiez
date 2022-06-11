@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import IngredientCreateModal from "./Components/modals/IngredientCreateModal";
 import RecipesList from "./Components/RecipesList";
+import CategoryCreateModal from "./Components/modals/CategoryCreateModal";
+import RecipeCreateModal from "./Components/modals/RecipeCreateModal";
 
 function App() {
   return (
@@ -11,11 +13,10 @@ function App() {
       <NavBar />
 
       <div className="content-container">
-        <div className="category-list">
-          <CategoriesList />
-        </div>
-        <div className="ingredient-list">
+        <div className="add-buttons-container">
+          <CategoryCreateModal />
           <IngredientCreateModal />
+          <RecipeCreateModal />
         </div>
         <RecipesList />
       </div>
