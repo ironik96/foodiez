@@ -66,6 +66,9 @@ const FiltersModal = ({ modalShow, closeModal }) => {
     >
       <Form onSubmit={handleSubmit}>
         <ModalBody className="filter-modal-form">
+          <Modal.Header closeButton>
+            <Modal.Title>Filter Recipes</Modal.Title>
+          </Modal.Header>
           <UserRecipeButton
             isUserRecipe={filters.isUserRecipe}
             handleIsUserRecipe={handleIsUserRecipe}
