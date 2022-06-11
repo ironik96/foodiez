@@ -10,9 +10,6 @@ function RecipesList() {
   ));
   return (
     <div>
-      <RecipeCreateModal />
-
-      <hr />
       <div className="recipe-container">{recipesList}</div>
     </div>
   );
