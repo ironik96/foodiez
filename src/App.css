@@ -71,3 +71,31 @@
   align-items: center;
   flex-direction: row;
 }
+
+.filter-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.filter-button {
+  width: 15px;
+}
+
+.fib-basic {
+  border-radius: 20px;
+  padding: 5px 15px;
+}
+
+.fib-unselected {
+  background-color: white;
+  color: rgb(74, 72, 72);
+  border: 1px solid gainsboro;
+}
+
+.filter-option-list-wrapper {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}

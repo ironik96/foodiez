@@ -9,6 +9,12 @@ class RecipesStore {
   recipes = [];
   filteredRecipes = [];
   filter = "";
+  defaultFilters = {
+    isUserRecipe: false,
+    categories: [],
+    withIngredients: [],
+    withoutIngredients: [],
+  };
 
   setFilter = (newFilter) => {
     this.filter = newFilter;
