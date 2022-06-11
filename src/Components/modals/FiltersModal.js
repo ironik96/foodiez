@@ -3,6 +3,7 @@ import { useState } from "react";
 import recipesStore from "../../stores/recipesStore";
 import categoriesStore from "../../stores/categoriesStore";
 import ingredientsStore from "../../stores/ingredientStore";
+import authStore from "../../stores/authStore";
 
 const FiltersModal = ({ modalShow, closeModal }) => {
   const [filters, setFilters] = useState(recipesStore.defaultFilters);
@@ -52,6 +53,7 @@ const FiltersModal = ({ modalShow, closeModal }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    recipesStore.applyFilters(authStore.user, filters);
     closeModal();
   };
   return (

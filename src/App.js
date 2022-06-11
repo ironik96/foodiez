@@ -10,9 +10,9 @@ function App() {
     <div className="App">
       <NavBar />
       <div className="content-container">
-        {/* <CategoriesList /> */}
-        {/* <IngredientCreateModal /> */}
-        {/* <RecipesList /> */}
+        <CategoriesList />
+        <IngredientCreateModal />
+        <RecipesList />
       </div>
     </div>
   );

@@ -21,6 +21,52 @@ class RecipesStore {
     this.filterRecipes();
   };
 
+  applyFilters = (localUser, filters) => {
+    const noFilters =
+      JSON.stringify(filters) === JSON.stringify(this.defaultFilters);
+
+    const isUserRecipe = (recipeUser, filterUser) =>
+      recipeUser?._id === filterUser._id;
+
+    const hasCategories = (recipeCategories, filterCategories) =>
+      filterCategories.length === 0 ||
+      filterCategories.every((cat) =>
+        recipeCategories.some(({ name }) => name === cat)
+      );
+
+    const validIngredients = (
+      recipeIngredients,
+      filterIngredients,
+      filterIn
+    ) => {
+      if (filterIn)
+        return (
+          filterIngredients.length === 0 ||
+          filterIngredients.every((ing) =>
+            recipeIngredients.some(({ name }) => name === ing)
+          )
+        );
+      return !filterIngredients.some((ing) =>
+        recipeIngredients.some(({ name }) => name === ing)
+      );
+    };
+
+    if (noFilters) return (this.filteredRecipes = [...this.recipes]);
+
+    this.filteredRecipes = this.recipes.filter(
+      ({ categories, ingredients, user }) => {
+        const condition =
+          hasCategories(categories, filters.categories) &&
+          validIngredients(ingredients, filters.withIngredients, true) &&
+          validIngredients(ingredients, filters.withoutIngredients, false);
+
+        return filters.isUserRecipe
+          ? isUserRecipe(user, localUser) && condition
+          : condition;
+      }
+    );
+  };
+
   setRecipes = (newRecipes) => {
     this.recipes = [...newRecipes];
     this.filterRecipes();
