@@ -193,8 +193,8 @@ function RecipeCreateModal() {
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="primary" onClick={handleSubmit}>
-            Generate
+          <Button variant="success" onClick={handleSubmit}>
+            Add
           </Button>
         </Modal.Footer>
       </Modal>

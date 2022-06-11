@@ -93,8 +93,8 @@ function IngredientCreateModal() {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleSubmit}>
-            Save Changes
+          <Button variant="success" onClick={handleSubmit}>
+            Add
           </Button>
         </Modal.Footer>
       </Modal>
