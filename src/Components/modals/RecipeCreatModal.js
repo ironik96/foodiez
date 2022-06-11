@@ -2,8 +2,11 @@ import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import recipesStore from "../../stores/recipesStore";
+
+import Alert from "react-bootstrap/Alert";
 import { MultiSelect } from "react-multi-select-component";
+
+import recipesStore from "../../stores/recipesStore";
 import categoriesStore from "../../stores/categoriesStore";
 import ingredientsStore from "../../stores/ingredientStore";
 import { observer } from "mobx-react";
@@ -74,8 +77,11 @@ function RecipeCreateModal() {
     formData.append("categories", newRecipe.categories);
     formData.append("ingredients", newRecipe.ingredients);
     formData.append("recipeImage", fileImg);
-    formData.append("user", authStore.user._id);
-    recipesStore.createRecipe(formData);
+    if (authStore.user) {
+      formData.append("user", authStore.user._id);
+    }
+
+    recipesStore.createRecipe(formData, setShowError, setShowSuccess);
     clearInputs();
     handleClose();
   };
@@ -92,6 +98,42 @@ function RecipeCreateModal() {
     setSelectedIngredients([]);
     setSelectedCategories([]);
   };
+
+  //notification for Success
+  const [showSuccess, setShowSuccess] = useState(false);
+  let successMsg;
+  if (showSuccess) {
+    successMsg = (
+      <Alert
+        className="m-4 w-25 position-absolute top-25 start-50 translate-middle popup-messages"
+        variant="success"
+        onClose={() => setShowSuccess(false)}
+        dismissible
+      >
+        <p className="my-2">Successfully added Recipe</p>
+      </Alert>
+    );
+  } else {
+    successMsg = <></>;
+  }
+  //handling Errors
+  const [showError, setShowError] = useState(false);
+  let errorMsg;
+  if (showError) {
+    errorMsg = (
+      <Alert
+        className="m-4 w-25 position-absolute top-25 start-50 translate-middle popup-messages"
+        variant="danger"
+        onClose={() => setShowError(false)}
+        dismissible
+      >
+        <Alert.Heading>Can't Add the Recipe</Alert.Heading>
+        <p>Please try again</p>
+      </Alert>
+    );
+  } else {
+    errorMsg = <></>;
+  }
   // component
   return (
     <>
@@ -156,6 +198,8 @@ function RecipeCreateModal() {
           </Button>
         </Modal.Footer>
       </Modal>
+      {errorMsg}
+      {successMsg}
     </>
   );
 }

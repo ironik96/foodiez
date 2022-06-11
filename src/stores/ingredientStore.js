@@ -3,7 +3,6 @@ import instance from "./instance";
 
 class IngredientsStore {
   ingredients = [];
-
   constructor() {
     makeAutoObservable(this);
   }
@@ -12,19 +11,20 @@ class IngredientsStore {
     try {
       const response = await instance.get("/ingredients");
       this.ingredients = response.data;
-      // console.log(response.data);
     } catch (error) {
       console.error("fetching error", error);
     }
   };
 
-  createIngredient = async (ingredient) => {
+  createIngredient = async (ingredient, setShowError, setShowSuccess) => {
     try {
       const response = await instance.post("/ingredients/create", ingredient);
-      console.log(response.data);
+
       this.ingredients.push(response.data);
+      setShowSuccess(true);
     } catch (error) {
-      console.error("creating error", error);
+      console.error("creating error", error.response);
+      setShowError(true);
     }
   };
 }
