@@ -17,12 +17,16 @@ class CategoriesStore {
     }
   };
 
-  createCategory = async (category) => {
+  createCategory = async (category, setShowError, setShowSuccess) => {
     try {
       const response = await instance.post("categories/create", category);
       this.categories.push(response.data);
+
+      setShowSuccess(true);
     } catch (error) {
       console.error("creating error", error);
+
+      setShowError(true);
     }
   };
 }
