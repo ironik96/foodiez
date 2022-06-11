@@ -8,7 +8,6 @@ function CategoryItem({ category }) {
     <div style={{ display: "inline", margin: "10px" }}>
       <Button
         variant="outline-dark"
-        size="lg"
         onClick={() => recipesStore.setFilter(category.name)}
       >
         {category.name}

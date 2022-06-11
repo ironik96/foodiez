@@ -89,13 +89,13 @@ class RecipesStore {
     }
   };
 
-  createRecipe = async (recipe) => {
+  createRecipe = async (recipe, setShowError, setShowSuccess) => {
     try {
-      const response = await instance.post("recipes/create", recipe);
+      await instance.post("recipes/create", recipe);
       this.fetchRecipes();
+      setShowSuccess(true);
     } catch (error) {
-      alert("Must enter a recipe name");
-      console.log(error);
+      setShowError(true);
     }
   };
 }
