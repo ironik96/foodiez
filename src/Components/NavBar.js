@@ -27,7 +27,7 @@ const NavBar = () => {
   return (
     <div className="navbar-container">
       <nav className="navbar">
-        <h1>Foodiez</h1>
+        <h1 style={{ color: "black" }}>Foodiez</h1>
         <div></div>
         {authButtons}
       </nav>

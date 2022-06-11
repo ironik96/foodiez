@@ -1,6 +1,7 @@
 import filterIcon from "../../images/filter.png";
 import { useState } from "react";
 import FiltersModal from "../modals/FiltersModal";
+import { Button } from "react-bootstrap";
 
 const FilterButton = () => {
   const [modalShow, setModalShow] = useState(false);
@@ -8,9 +9,9 @@ const FilterButton = () => {
   const closeModal = () => setModalShow(false);
   return (
     <>
-      <button className="btn" onClick={openModal}>
+      <Button variant="lite" onClick={openModal}>
         <img src={filterIcon} alt="filter" className="filter-button" /> Filters
-      </button>
+      </Button>
       <FiltersModal {...{ modalShow, closeModal }} />
     </>
   );

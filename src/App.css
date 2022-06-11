@@ -2,6 +2,7 @@
 
 :root {
   --navbar-gap: 30px;
+  --box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .App {
@@ -10,11 +11,12 @@
 }
 
 .navbar-container {
-  width: calc(100% - 50px);
-  margin-left: 25px;
+  width: 100%;
+  padding: 0 25px;
   position: fixed;
-  background-color: white;
   height: 70px;
+  background-color: white;
+  z-index: 100;
 }
 .popup-messages {
   z-index: 1000;
@@ -103,4 +105,32 @@
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+}
+
+.btn-dark {
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+}
+
+.btn:focus,
+.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
+
+.btn-dark:hover,
+.btn-dark:active,
+.btn-dark:focus {
+  background-color: black;
+}
+
+.btn-lite {
+  border-radius: 10px;
+  border: 1px solid gainsboro;
+  color: black;
+}
+
+.btn:hover {
+  box-shadow: var(--box-shadow);
 }
