@@ -9,13 +9,16 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <div className="category-list">
-        <CategoriesList />
+
+      <div className="content-container">
+        <div className="category-list">
+          <CategoriesList />
+        </div>
+        <div className="ingredient-list">
+          <IngredientCreateModal />
+        </div>
+        <RecipesList />
       </div>
-      <div className="ingredient-list">
-        <IngredientCreateModal />
-      </div>
-      <RecipesList />
     </div>
   );
 }

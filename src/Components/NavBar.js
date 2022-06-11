@@ -3,14 +3,18 @@ import authStore from "../stores/authStore";
 import { observer } from "mobx-react";
 import SigninButton from "./Buttons/SigninButton";
 import SignupButton from "./Buttons/SignupButton";
+import FilterButton from "./Buttons/FilterButton";
 
 const NavBar = () => {
   let authButtons;
   if (authStore.user)
     authButtons = (
-      <Button variant="dark" onClick={() => authStore.signout()}>
-        Sign out
-      </Button>
+      <>
+        <FilterButton />
+        <Button variant="dark" onClick={() => authStore.signout()}>
+          Sign out
+        </Button>
+      </>
     );
   else
     authButtons = (
@@ -24,10 +28,6 @@ const NavBar = () => {
     <div className="navbar-container">
       <nav className="navbar">
         <h1>Foodiez</h1>
-        <ul className="navbar-pages">
-          <li>Recipies</li>
-          <li>Ingredients</li>
-        </ul>
         <div></div>
         {authButtons}
       </nav>
