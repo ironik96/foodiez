@@ -2,6 +2,8 @@ import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+
+import Alert from "react-bootstrap/Alert";
 import categoriesStore from "../../stores/categoriesStore";
 
 function CategoryCreateModal() {
