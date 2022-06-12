@@ -8,7 +8,6 @@ class RecipesStore {
 
   recipes = [];
   filteredRecipes = [];
-  filter = "";
   defaultFilters = {
     isUserRecipe: false,
     categories: [],
@@ -16,10 +15,7 @@ class RecipesStore {
     withoutIngredients: [],
   };
 
-  setFilter = (newFilter) => {
-    this.filter = newFilter;
-    this.filterRecipes();
-  };
+  resetFilters = () => (this.filteredRecipes = [...this.recipes]);
 
   applyFilters = (localUser, filters) => {
     const noFilters =
@@ -51,7 +47,7 @@ class RecipesStore {
       );
     };
 
-    if (noFilters) return (this.filteredRecipes = [...this.recipes]);
+    if (noFilters) return this.resetFilters();
 
     this.filteredRecipes = this.recipes.filter(
       ({ categories, ingredients, user }) => {
@@ -69,15 +65,7 @@ class RecipesStore {
 
   setRecipes = (newRecipes) => {
     this.recipes = [...newRecipes];
-    this.filterRecipes();
-  };
-
-  filterRecipes = () => {
-    this.filteredRecipes = this.recipes.filter(
-      ({ categories }) =>
-        categories.some(({ name }) => name.includes(this.filter)) ||
-        categories.length === 0
-    );
+    this.filteredRecipes = [...newRecipes];
   };
 
   fetchRecipes = async () => {
