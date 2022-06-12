@@ -102,6 +102,7 @@ const FiltersModal = ({ modalShow, closeModal }) => {
 };
 
 const UserRecipeButton = ({ isUserRecipe, handleIsUserRecipe }) => {
+  if (!authStore.user) return null;
   const [state, style] = isUserRecipe
     ? ["success", "fib-basic"]
     : ["", "fib-basic fib-unselected"];
