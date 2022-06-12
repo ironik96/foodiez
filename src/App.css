@@ -49,11 +49,7 @@
 .add-buttons-container {
   display: flex;
   gap: 25px;
-  /* padding: 10px; */
-  /* background-color: blue; */
   width: max-content;
-  /* border-radius: 30px; */
-  /* box-shadow: var(--box-shadow); */
 }
 
 .recipe-container {
@@ -63,15 +59,6 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
-
-/* .recipe-card {
-  width: 18rem;
-  height: 28rem;
-  margin: 1rem;
-  border-radius: 10px;
-  border-width: 1px;
-  box-shadow: 0 4px 8px 0 rgba(166, 187, 146, 0.427), 0 6px 20px 0 rgba(166, 187, 146, 0.19);
-} */
 
 .one-recipe-img {
   width: 8rem;
@@ -120,7 +107,8 @@
 }
 
 .btn:focus,
-.btn:active {
+.btn:active,
+.btn:focus.btn:active {
   outline: none !important;
   box-shadow: none;
 }
