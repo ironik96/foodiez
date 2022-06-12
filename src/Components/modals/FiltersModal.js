@@ -1,5 +1,5 @@
 import { Modal, Button, Form, InputGroup, ModalBody } from "react-bootstrap";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import recipesStore from "../../stores/recipesStore";
 import categoriesStore from "../../stores/categoriesStore";
 import ingredientsStore from "../../stores/ingredientStore";
@@ -7,6 +7,8 @@ import authStore from "../../stores/authStore";
 
 const FiltersModal = ({ modalShow, closeModal }) => {
   const [filters, setFilters] = useState(recipesStore.defaultFilters);
+  let isApplied = false;
+  const initialFilters = useRef(filters);
 
   const handleIsUserRecipe = () => {
     const toggle = !filters.isUserRecipe;
@@ -54,7 +56,14 @@ const FiltersModal = ({ modalShow, closeModal }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     recipesStore.applyFilters(authStore.user, filters);
+    isApplied = true;
+    initialFilters.current = filters;
     closeModal();
+  };
+
+  const onExit = () => {
+    if (isApplied) return;
+    setFilters(initialFilters.current);
   };
   return (
     <Modal
@@ -63,10 +72,11 @@ const FiltersModal = ({ modalShow, closeModal }) => {
       aria-labelledby="contained-modal-title-vcenter"
       centered
       onHide={closeModal}
+      onExit={onExit}
     >
       <Form onSubmit={handleSubmit}>
         <ModalBody className="filter-modal-form">
-          <Modal.Header closeButton>
+          <Modal.Header>
             <Modal.Title>Filter Recipes</Modal.Title>
           </Modal.Header>
           <UserRecipeButton
