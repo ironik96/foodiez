@@ -49,6 +49,7 @@ const RecipeDetails = () => {
           currentTarget.onerror = null;
           currentTarget.src = defaultImage;
         }}
+        width="500px"
       />
       <div style={cardTextStyle}>{categoriesPopulate}</div>
       <div style={{ textAlign: "start" }}>
