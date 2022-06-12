@@ -72,14 +72,13 @@ function IngredientCreateModal() {
         + Ingredient
       </Button>
 
-      <Modal show={show} onSubmit={handleSubmit} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Create a New Ingredient</Modal.Title>
+      <Modal show={show} centered onSubmit={handleSubmit} onHide={handleClose}>
+        <Modal.Header>
+          <Modal.Title>New Ingredient</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Ingredient Name</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Name"
@@ -90,10 +89,7 @@ function IngredientCreateModal() {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="success" onClick={handleSubmit}>
+          <Button variant="dark" onClick={handleSubmit}>
             Add
           </Button>
         </Modal.Footer>

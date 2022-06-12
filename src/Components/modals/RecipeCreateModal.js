@@ -141,14 +141,13 @@ function RecipeCreateModal() {
         + Recipe
       </Button>
 
-      <Modal show={show} onSubmit={handleSubmit} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Create a New Recipe</Modal.Title>
+      <Modal show={show} centered onSubmit={handleSubmit} onHide={handleClose}>
+        <Modal.Header>
+          <Modal.Title>New Recipe</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Recipe Name</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Name"
@@ -163,7 +162,7 @@ function RecipeCreateModal() {
               <Form.Control type="file" onChange={handleImg} />
             </Form.Group>
 
-            <Form.Label>Category</Form.Label>
+            <Form.Label>Categories</Form.Label>
             <MultiSelect
               options={categoryOptions}
               value={selectedCategories}
@@ -190,10 +189,7 @@ function RecipeCreateModal() {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Cancel
-          </Button>
-          <Button variant="success" onClick={handleSubmit}>
+          <Button variant="dark" onClick={handleSubmit}>
             Add
           </Button>
         </Modal.Footer>
