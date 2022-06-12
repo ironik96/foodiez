@@ -25,6 +25,7 @@ const cardTextStyle = {
   justifyContent: "center",
   alignItems: "center",
   flexWrap: "wrap",
+  zIndex: 1000,
 };
 
 const RecipeDetails = () => {
