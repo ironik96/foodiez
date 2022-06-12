@@ -6,6 +6,8 @@ import IngredientCreateModal from "./Components/modals/IngredientCreateModal";
 import RecipesList from "./Components/RecipesList";
 import CategoryCreateModal from "./Components/modals/CategoryCreateModal";
 import RecipeCreateModal from "./Components/modals/RecipeCreateModal";
+import authStore from "./stores/authStore";
+import { observer } from "mobx-react";
 
 function App() {
   return (
@@ -13,15 +15,17 @@ function App() {
       <NavBar />
 
       <div className="content-container">
-        <div className="add-buttons-container">
-          <CategoryCreateModal />
-          <IngredientCreateModal />
-          <RecipeCreateModal />
-        </div>
+        {authStore.user && (
+          <div className="add-buttons-container">
+            <CategoryCreateModal />
+            <IngredientCreateModal />
+            <RecipeCreateModal />
+          </div>
+        )}
         <RecipesList />
       </div>
     </div>
   );
 }
 
-export default App;
+export default observer(App);
