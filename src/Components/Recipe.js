@@ -2,6 +2,7 @@ import RecipeCat from "./RecipeCat";
 import RecipeIng from "./RecipeIng";
 import { observer } from "mobx-react";
 import Card from "react-bootstrap/Card";
+import defaultImage from "../images/defaultImage.png";
 function Recipe({ recipe }) {
   const categoriesPopulate = recipe.categories.map((category) => {
     return <RecipeCat key={category._id} category={category} />;
@@ -28,6 +29,10 @@ function Recipe({ recipe }) {
         // className="one-recipe-img"
         alt="recipeImage"
         src={recipe.image}
+        onError={({ currentTarget }) => {
+          currentTarget.onerror = null;
+          currentTarget.src = defaultImage;
+        }}
         style={{
           height: "45%",
           borderTopLeftRadius: "10px",
