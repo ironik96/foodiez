@@ -83,9 +83,13 @@ class RecipesStore {
       this.fetchRecipes();
       setShowSuccess(true);
     } catch (error) {
+      console.error(error);
       setShowError(true);
     }
   };
+
+  getRecipeBySlug = (slug) =>
+    this.recipes.find((recipe) => recipe.slug === slug);
 }
 const recipesStore = new RecipesStore();
 recipesStore.fetchRecipes();
