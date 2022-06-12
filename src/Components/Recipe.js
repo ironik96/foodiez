@@ -3,6 +3,15 @@ import RecipeIng from "./RecipeIng";
 import { observer } from "mobx-react";
 import Card from "react-bootstrap/Card";
 import defaultImage from "../images/defaultImage.png";
+
+const cardTextStyle = {
+  display: "flex",
+  gap: "4px",
+  justifyContent: "center",
+  alignItems: "center",
+  flexWrap: "wrap",
+};
+
 function Recipe({ recipe }) {
   const categoriesPopulate = recipe.categories.map((category) => {
     return <RecipeCat key={category._id} category={category} />;
@@ -20,13 +29,10 @@ function Recipe({ recipe }) {
         margin: "1rem",
         borderRadius: "10px",
         borderWidth: "1px",
-        boxShadow:
-          "0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3)",
       }}
     >
       <Card.Img
         variant="top"
-        // className="one-recipe-img"
         alt="recipeImage"
         src={recipe.image}
         onError={({ currentTarget }) => {
@@ -39,22 +45,19 @@ function Recipe({ recipe }) {
           borderTopRightRadius: "10px",
         }}
       />
-      <Card.Body>
-        <Card.Title>{recipe.name}</Card.Title>
-        <Card.Text style={{ margin: "4px" }}>{categoriesPopulate}</Card.Text>
-        <Card.Text style={{ margin: "4px" }}>{ingredientsPopulate}</Card.Text>
+      <Card.Body
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "20px",
+        }}
+      >
+        <Card.Title style={{ fontWeight: "bold" }}>{recipe.name}</Card.Title>
+        <Card.Text style={cardTextStyle}>{categoriesPopulate}</Card.Text>
+        <Card.Text style={cardTextStyle}>{ingredientsPopulate}</Card.Text>
       </Card.Body>
     </Card>
   );
 }
 
 export default observer(Recipe);
-
-{
-  /* <div className="one-recipe">
-      <img className="one-recipe-img" alt="recipeImage" src={recipe.image}></img>
-      <div>{recipe.name}</div>
-      <div>{categoriesPopulate}</div>
-      <div className="one-recipe-ingredients">{ingredientsPopulate}</div>
-    </div> */
-}

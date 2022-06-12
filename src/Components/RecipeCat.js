@@ -1,13 +1,14 @@
-import Button from "react-bootstrap/Button";
 import { observer } from "mobx-react";
+
+const style = {
+  backgroundColor: "hsl(142, 28%, 41%)",
+  fontSize: "16px",
+  color: "white",
+  padding: "8px",
+  borderRadius: "100px",
+};
 function RecipeCat({ category }) {
-  return (
-    <div style={{ margin: "2px", display: "inline" }}>
-      <Button size="sm" variant="dark">
-        {category.name}
-      </Button>
-    </div>
-  );
+  return <span style={style}>{category.name}</span>;
 }
 
 export default observer(RecipeCat);
